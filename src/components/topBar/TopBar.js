@@ -6,7 +6,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function TopBar() {
   return (
-    <div className='d-flex justify-content-between container align-items-center py-3'>
+    <div className='d-flex justify-content-between align-items-center py-3 px-4 bg-white position-sticky top-0 w-100 z-3'>
         <div>
             <img src="imgs/logo.png" alt="logo" className='logo'/>
         </div>
