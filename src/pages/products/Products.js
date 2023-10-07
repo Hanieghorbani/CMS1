@@ -14,7 +14,7 @@ export default function Products() {
         setRows(data ? Object.entries(data) : [])
       })
   }, [getProd])
-  let  productsArr = []
+  let productsArr = []
   rows.forEach((item) => {
     productsArr.push(item[1])
   })
@@ -31,7 +31,7 @@ export default function Products() {
       width: 200,
       renderCell: (params) => {
         return (
-          <Link to={`/products/${params.row.id}`} className="link text-dark">
+          <Link to={`/product/${params.row.id}`} className="link text-dark">
             <div>
               <img src={params.row.avatar} className="usersImg" />
               {params.row.title}
@@ -52,7 +52,7 @@ export default function Products() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/products/${params.row.id}`} className="link">
+            <Link to={`/product/${params.row.id}`} className="link">
               <button className="bg-success btn text-white btn-sm">Edit</button>
             </Link>
             <DeleteOutlineIcon
@@ -79,21 +79,22 @@ export default function Products() {
     setGetProd((prev) => !prev)
   }
   return (
-    <div style={{width:'80%'}}>
-      <DataGrid
-        rows={productsArr}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 4,
+    <div style={{ width: "80%" }}>
+        <DataGrid
+          rows={productsArr}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 4,
+              },
             },
-          },
-        }}
-        pageSizeOptions={4}
-        disableRowSelectionOnClick
-        checkboxSelection
-      />
+          }}
+          pageSizeOptions={4}
+          disableRowSelectionOnClick
+          checkboxSelection
+        />
+  
     </div>
   )
 }

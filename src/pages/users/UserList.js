@@ -97,11 +97,11 @@ export default function UserList() {
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 3,
+              pageSize: 5,
             },
           },
         }}
-        pageSizeOptions={3}
+        pageSizeOptions={5}
         disableRowSelectionOnClick
       />
     </div>
