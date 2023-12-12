@@ -3,22 +3,10 @@ import { DataGrid } from "@mui/x-data-grid"
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import { Link } from "react-router-dom"
 import "./UserList.css"
+import useFetch from "../../hooks/useFetch"
 export default function UserList() {
-  const [rows, setRows] = useState([])
+  const [rows, setRows,usersArr] = useFetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/users.json")
   const [getUser, setGetUser] = useState(false)
-
-  useEffect(() => {
-    fetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/users.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setRows(data ? Object.entries(data) : [])
-      })
-  }, [getUser])
-  let usersArr = []
-
-  rows.forEach((item) => {
-    usersArr.push(item[1])
-  })
 
   const columns = [
     {

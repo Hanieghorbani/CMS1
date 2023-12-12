@@ -3,21 +3,10 @@ import { DataGrid } from "@mui/x-data-grid"
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import { Link } from "react-router-dom"
 import "./Products.css"
+import useFetch from "../../hooks/useFetch"
 export default function Products() {
-  const [rows, setRows] = useState([])
+  const [rows, setRows,productsArr] = useFetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/products.json")
   const [getProd, setGetProd] = useState(false)
-
-  useEffect(() => {
-    fetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setRows(data ? Object.entries(data) : [])
-      })
-  }, [getProd])
-  let productsArr = []
-  rows.forEach((item) => {
-    productsArr.push(item[1])
-  })
 
   const columns = [
     {

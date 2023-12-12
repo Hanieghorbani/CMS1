@@ -3,25 +3,10 @@ import Feature from "../../components/feature/Feature"
 import Chart from "../../components/chart/Chart"
 import WidgetSm from "../../components/widgetSm/WidgetSm"
 import WidgetLg from "../../components/widgetLg/WidgetLg"
+import useFetch from "../../hooks/useFetch"
 export default function Home() {
-  const [chartDatas, setChartDatas] = useState([])
+  const [chartDatas,setChartDatas,chartDatasArr] = useFetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/chart.json")
 
-  useEffect(() => {
-    fetch("https://cms-1-ddec3-default-rtdb.firebaseio.com/chart.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setChartDatas(Object.entries(data))
-      }).catch(
-        setChartDatas([])
-      )
-  }, [])
-
-  let chartDatasArr = []
-  if (chartDatas) {
-     chartDatas.forEach((item) => {
-    chartDatasArr.push(item[1])
-  })
-  }
   return (
     <div className="mt-3" style={{ width: "80%" }}>
       <Feature />
