@@ -1,0 +1,7 @@
+.featureItem h3{
+color: rgb(60, 60, 60);
+}
+
+.featureItem{
+    cursor: pointer;
+}
